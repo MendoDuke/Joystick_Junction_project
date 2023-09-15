@@ -38,17 +38,3 @@ function updateStatistics(outcome) {
   document.getElementById("losses").textContent = losses.toString();
   document.getElementById("ties").textContent = ties.toString();
 }
-const playNowButton = document.getElementById('playNowButton');
-playNowButton.addEventListener('click', function() {
- 
-  const selectedGame = prompt('Which game would you like to play? (e.g. Tic Tac Toe)');
-
-  
-  if (selectedGame && selectedGame.toLowerCase() === 'tic tac toe') {
-      // If the user chooses Tic Tac Toe, show the rules
-      alert('Rules for Tic Tac Toe:\n\nTwo players take turns marking a square. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.');
-  } else {
-      // Handle other game choices (if any)
-      alert('Sorry, that game is not available at the moment.');
-  }
-});
