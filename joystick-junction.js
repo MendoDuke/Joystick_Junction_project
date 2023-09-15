@@ -21,6 +21,7 @@ export { db, auth };
 let gamesPlayed = 0;
 let wins = 0;
 let losses = 0;
+let ties = 0;
 
 function updateStatistics(outcome) {
   gamesPlayed++;
@@ -28,9 +29,26 @@ function updateStatistics(outcome) {
     wins++;
   } else if (outcome === "loss") {
     losses++;
+  } else if (outcome === "tie") {
+    ties++;
   }
 
-  document.getElementById("games-played").textContent = gamesPlayed;
-  document.getElementById("wins").textContent = wins;
-  document.getElementById("losses").textContent = losses;
+  document.getElementById("games-played").textContent = gamesPlayed.toString();
+  document.getElementById("wins").textContent = wins.toString();
+  document.getElementById("losses").textContent = losses.toString();
+  document.getElementById("ties").textContent = ties.toString();
 }
+const playNowButton = document.getElementById('playNowButton');
+playNowButton.addEventListener('click', function() {
+ 
+  const selectedGame = prompt('Which game would you like to play? (e.g. Tic Tac Toe)');
+
+  
+  if (selectedGame && selectedGame.toLowerCase() === 'tic tac toe') {
+      // If the user chooses Tic Tac Toe, show the rules
+      alert('Rules for Tic Tac Toe:\n\nTwo players take turns marking a square. The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row wins the game.');
+  } else {
+      // Handle other game choices (if any)
+      alert('Sorry, that game is not available at the moment.');
+  }
+});
